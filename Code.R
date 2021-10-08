@@ -16,6 +16,7 @@ nurses%>%select(State,Year,`Annual Salary Median`)%>%
 salary%>%group_by(State,Year)%>%
   arrange(State,Year)->salary
 salary
+salary$Salary<-(salary$Salary/1000)
 colnames(salary)<-c("State","Year","Salary")
 
 ggplot(salary, aes(Year,State,fill=Salary))+
