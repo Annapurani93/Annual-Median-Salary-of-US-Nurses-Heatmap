@@ -11,15 +11,6 @@ tuesdata$nurses->nurses
 
 glimpse(nurses)
 
-nurses%>%filter(Year==2020)%>%
-  select(State,`Total Employed RN`,
-         `Hourly Wage Median`,
-         `Annual Salary Median`,
-         `Location Quotient`)->table
-data.frame(table)%>%drop_na()->table
-table
-
-
 nurses%>%select(State,Year,`Annual Salary Median`)%>%
   distinct(State,Year,.keep_all = TRUE)->salary
 salary%>%group_by(State,Year)%>%
